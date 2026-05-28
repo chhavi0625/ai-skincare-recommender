@@ -1,0 +1,17 @@
+{
+  "name": "ai-skincare-recommender",
+  "version": "1.0.0",
+  "description": "AI-Based Dynamic Skincare Recommender for Women 40+",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "build": "echo Build OK"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "@supabase/supabase-js": "^2.39.0",
+    "dotenv": "^16.3.1"
+  }
+}

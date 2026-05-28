@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lumière — AI Skincare Recommender for Women 40+</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── Hero Header ─────────────────────────────────────────────────────── -->
+  <header class="hero">
+    <div class="hero__inner">
+      <p class="hero__eyebrow">Personalized Skincare Intelligence</p>
+      <h1 class="hero__title">Lumière</h1>
+      <p class="hero__subtitle">AI-powered skincare routines crafted for women 40 &amp; beyond</p>
+    </div>
+  </header>
+
+  <!-- ── Main Content ────────────────────────────────────────────────────── -->
+  <main class="main">
+
+    <!-- FORM SECTION -->
+    <section class="form-section" id="formSection">
+      <div class="form-card">
+        <h2 class="form-card__title">Your Skin Profile</h2>
+        <p class="form-card__desc">Answer a few questions so we can build your personalized routine.</p>
+
+        <form id="skincareForm" novalidate>
+
+          <!-- Name -->
+          <div class="field-group">
+            <label class="label" for="name">Full Name</label>
+            <input
+              class="input"
+              type="text"
+              id="name"
+              name="name"
+              placeholder="e.g. Sarah Mitchell"
+              autocomplete="name"
+            />
+            <span class="field-error" id="nameError"></span>
+          </div>
+
+          <!-- Age -->
+          <div class="field-group">
+            <label class="label" for="age">Age <span class="label-note">(must be 40+)</span></label>
+            <input
+              class="input"
+              type="number"
+              id="age"
+              name="age"
+              placeholder="e.g. 47"
+              min="40"
+              max="100"
+            />
+            <span class="field-error" id="ageError"></span>
+          </div>
+
+          <!-- Skin Type -->
+          <div class="field-group">
+            <label class="label">Skin Type</label>
+            <div class="radio-grid" id="skinTypeGroup">
+              <label class="radio-card">
+                <input type="radio" name="skinType" value="Dry" />
+                <span class="radio-card__inner">
+                  <span class="radio-card__icon">💧</span>
+                  <span class="radio-card__text">Dry</span>
+                </span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="skinType" value="Oily" />
+                <span class="radio-card__inner">
+                  <span class="radio-card__icon">✨</span>
+                  <span class="radio-card__text">Oily</span>
+                </span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="skinType" value="Combination" />
+                <span class="radio-card__inner">
+                  <span class="radio-card__icon">⚖️</span>
+                  <span class="radio-card__text">Combination</span>
+                </span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="skinType" value="Sensitive" />
+                <span class="radio-card__inner">
+                  <span class="radio-card__icon">🌿</span>
+                  <span class="radio-card__text">Sensitive</span>
+                </span>
+              </label>
+            </div>
+            <span class="field-error" id="skinTypeError"></span>
+          </div>
+
+          <!-- Skin Concerns -->
+          <div class="field-group">
+            <label class="label">Skin Concerns <span class="label-note">(select all that apply)</span></label>
+            <div class="checkbox-grid">
+              <label class="check-card">
+                <input type="checkbox" name="concerns" value="Wrinkles" />
+                <span class="check-card__inner">
+                  <span class="check-card__icon">〰️</span>
+                  <span class="check-card__text">Wrinkles</span>
+                </span>
+              </label>
+              <label class="check-card">
+                <input type="checkbox" name="concerns" value="Pigmentation" />
+                <span class="check-card__inner">
+                  <span class="check-card__icon">🌑</span>
+                  <span class="check-card__text">Pigmentation</span>
+                </span>
+              </label>
+              <label class="check-card">
+                <input type="checkbox" name="concerns" value="Dryness" />
+                <span class="check-card__inner">
+                  <span class="check-card__icon">🏜️</span>
+                  <span class="check-card__text">Dryness</span>
+                </span>
+              </label>
+              <label class="check-card">
+                <input type="checkbox" name="concerns" value="Acne" />
+                <span class="check-card__inner">
+                  <span class="check-card__icon">🔴</span>
+                  <span class="check-card__text">Acne</span>
+                </span>
+              </label>
+            </div>
+            <span class="field-error" id="concernsError"></span>
+          </div>
+
+          <!-- Lifestyle -->
+          <div class="field-group">
+            <label class="label">Lifestyle Factors</label>
+            <div class="lifestyle-grid">
+
+              <div class="select-wrap">
+                <label class="select-label" for="stress">Stress Level</label>
+                <select class="select" id="stress" name="stress">
+                  <option value="">— Select —</option>
+                  <option value="Low">Low</option>
+                  <option value="Moderate">Moderate</option>
+                  <option value="High">High</option>
+                </select>
+              </div>
+
+              <div class="select-wrap">
+                <label class="select-label" for="sleep">Sleep Quality</label>
+                <select class="select" id="sleep" name="sleep">
+                  <option value="">— Select —</option>
+                  <option value="Good">Good (7–8 hrs)</option>
+                  <option value="Moderate">Moderate (5–6 hrs)</option>
+                  <option value="Poor">Poor (&lt;5 hrs)</option>
+                </select>
+              </div>
+
+              <div class="select-wrap">
+                <label class="select-label" for="diet">Diet Quality</label>
+                <select class="select" id="diet" name="diet">
+                  <option value="">— Select —</option>
+                  <option value="Good">Balanced &amp; nutritious</option>
+                  <option value="Moderate">Moderate</option>
+                  <option value="Poor">Processed / irregular</option>
+                </select>
+              </div>
+
+            </div>
+            <span class="field-error" id="lifestyleError"></span>
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="btn-submit" id="submitBtn">
+            <span class="btn-submit__text">Analyse My Skin</span>
+            <span class="btn-submit__loader" aria-hidden="true"></span>
+          </button>
+
+          <!-- Global error -->
+          <p class="form-error" id="formError"></p>
+
+        </form>
+      </div>
+    </section>
+
+    <!-- RESULTS SECTION (hidden until response) -->
+    <section class="results-section hidden" id="resultsSection">
+
+      <!-- Greeting -->
+      <div class="results-hero">
+        <p class="results-hero__eyebrow">Your Personalised Report</p>
+        <h2 class="results-hero__name" id="resultName">Hello, Sarah</h2>
+        <p class="results-hero__meta" id="resultMeta">Skin Type · Concerns</p>
+      </div>
+
+      <!-- Chat-style intro bubble -->
+      <div class="chat-bubble">
+        <div class="chat-bubble__avatar">L</div>
+        <div class="chat-bubble__text" id="chatText">
+          Based on your profile, here is your personalised skincare routine...
+        </div>
+      </div>
+
+      <!-- Routine cards -->
+      <div class="routine-grid">
+
+        <!-- Morning -->
+        <div class="routine-card routine-card--morning">
+          <div class="routine-card__header">
+            <span class="routine-card__icon">☀️</span>
+            <h3 class="routine-card__title">Morning Routine</h3>
+          </div>
+          <ol class="routine-list" id="morningList"></ol>
+        </div>
+
+        <!-- Night -->
+        <div class="routine-card routine-card--night">
+          <div class="routine-card__header">
+            <span class="routine-card__icon">🌙</span>
+            <h3 class="routine-card__title">Night Routine</h3>
+          </div>
+          <ol class="routine-list" id="nightList"></ol>
+        </div>
+
+      </div>
+
+      <!-- Recommended products -->
+      <div class="products-section">
+        <h3 class="section-title">Key Products for You</h3>
+        <div class="products-grid" id="productsList"></div>
+      </div>
+
+      <!-- Tips -->
+      <div class="tips-section">
+        <h3 class="section-title">Expert Tips &amp; Insights</h3>
+        <div class="tips-list" id="tipsList"></div>
+      </div>
+
+      <!-- Start over -->
+      <div class="restart-wrap">
+        <button class="btn-restart" id="restartBtn">Start Over</button>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ── Footer ──────────────────────────────────────────────────────────── -->
+  <footer class="footer">
+    <p>Lumière &copy; 2024 &nbsp;·&nbsp; AI Skincare Recommender for Women 40+</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
